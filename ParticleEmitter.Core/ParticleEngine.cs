@@ -2,7 +2,7 @@
 
 public class ParticleEngine
 {
-    public const int ELEMENTS = 10;
+    public const int ELEMENTS = 500;
     
     private readonly Particle[] _particles = new  Particle[ELEMENTS];
 

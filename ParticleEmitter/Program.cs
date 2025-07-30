@@ -18,7 +18,7 @@ public static class Program
             Engine.Update();
             Engine.Draw();
             
-            Thread.Sleep(50);
+            Thread.Sleep(10);
         }
     }
 }

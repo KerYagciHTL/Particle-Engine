@@ -14,11 +14,8 @@ public class Particle
     public Particle()
     {
         COLOR = (ConsoleColor)Random.Shared.Next(1, 14);
-        //X = Random.Shared.Next(1, Console.WindowWidth - 1);
-        //Y = Random.Shared.Next(1, Console.WindowHeight - 1);
-        
-        X = Console.WindowWidth / 2;
-        Y = Console.WindowHeight / 2;
+        X = Random.Shared.Next(1, Console.WindowWidth - 1);
+        Y = Random.Shared.Next(1, Console.WindowHeight - 1);
         
         HorizontalDirection = (HorizontalDirection)Random.Shared.Next(1, 3);
         VerticalDirection = (VerticalDirection)Random.Shared.Next(1, 3);
@@ -44,7 +41,30 @@ public class Particle
                 X++;
                 break;
         }
+
+        if (Y <= 0)
+        {
+            Y = 0;
+            HorizontalDirection = HorizontalDirection.Down;
+        }
+        else if (Y >= Console.WindowHeight - 1)
+        {
+            Y = Console.WindowHeight - 1;
+            HorizontalDirection = HorizontalDirection.Up;
+        }
+
+        if (X <= 0)
+        {
+            X = 0;
+            VerticalDirection = VerticalDirection.Right;
+        }
+        else if (X >= Console.WindowWidth - 1)
+        {
+            X = Console.WindowWidth - 1;
+            VerticalDirection = VerticalDirection.Left;
+        }
     }
+
 
     public void Draw()
     {
