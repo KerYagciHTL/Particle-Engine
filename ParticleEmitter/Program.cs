@@ -1,4 +1,5 @@
-﻿using ParticleEmitter.Core;
+﻿using System.Text;
+using ParticleEmitter.Core;
 
 namespace ParticleEmitter;
 
@@ -8,6 +9,16 @@ public static class Program
     
     private static void Main()
     {
-        Engine.DoSomething();
+        Console.OutputEncoding = Encoding.UTF8;
+        Engine.Init();
+        
+        while (true)
+        {
+            Console.Clear();
+            Engine.Update();
+            Engine.Draw();
+            
+            Thread.Sleep(50);
+        }
     }
 }
